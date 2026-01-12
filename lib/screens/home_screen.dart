@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/recording_provider.dart';
 import '../widgets/recording_indicator.dart';
 import 'recording_screen.dart';
+import 'settings_screen.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -90,6 +91,31 @@ class HomeScreen extends ConsumerWidget {
             ),
 
             const Spacer(),
+
+            // Navigation buttons
+            Row(
+              children: [
+                const SizedBox(width: 12),
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const SettingsScreen(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.settings),
+                    label: const Text('Cài đặt'),
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.all(12),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 16),
 
             // Button đến màn hình thu âm
             ElevatedButton.icon(
